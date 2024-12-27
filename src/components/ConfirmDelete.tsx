@@ -37,7 +37,7 @@ export default function ConfirmDelete<T>({
       if (id) {
         await deleteItem(id)
       } else {
-        for await (const id of selectedItems) {
+        for (const id of selectedItems) {
           await deleteItem(id)
         }
       }

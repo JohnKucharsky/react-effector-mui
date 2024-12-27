@@ -1,9 +1,8 @@
 import { Box, Card, Skeleton, Stack } from '@mui/material'
 import Grid from '@mui/material/Grid2'
-import CardBackgroundBlockItem from '@/components/CardBackgroundBlockItem'
 import { BackgroundBox } from '@/components/StyledComponents/FormsBackgroundAndLine'
 
-export const GridSkeletonsV2 = ({ skeletonNum }: { skeletonNum: number }) => {
+export const GridSkeletons = ({ skeletonNum }: { skeletonNum: number }) => {
   return (
     <Grid spacing={1}>
       {Array(Math.abs(skeletonNum - 2))
@@ -36,48 +35,12 @@ const CardElement = () => {
           <Skeleton variant={'rounded'} height={'1rem'} width={'8rem'} />
         </Box>
         <BackgroundBox mt={1} mb={1.5} gap={'0.75rem'}>
-          <CardBackgroundBlockItem
-            title={'  '}
-            text={
-              <Skeleton variant={'rounded'} height={'0.8rem'} width={'9rem'} />
-            }
-          />
-          <CardBackgroundBlockItem
-            title={'  '}
-            text={
-              <Skeleton variant={'rounded'} height={'1rem'} width={'10rem'} />
-            }
-          />
-          <CardBackgroundBlockItem
-            title={'  '}
-            text={
-              <Skeleton variant={'rounded'} height={'1rem'} width={'10rem'} />
-            }
-          />
-
-          <CardBackgroundBlockItem
-            title={'  '}
-            text={
-              <Skeleton variant={'rounded'} height={'1rem'} width={'8rem'} />
-            }
-          />
-          <CardBackgroundBlockItem
-            title={'  '}
-            text={
-              <Skeleton
-                variant={'rounded'}
-                height={'0.75rem'}
-                width={'10rem'}
-              />
-            }
-          />
-
-          <CardBackgroundBlockItem
-            title={'  '}
-            text={
-              <Skeleton variant={'rounded'} height={'1rem'} width={'8rem'} />
-            }
-          />
+          <Skeleton variant={'rounded'} height={'0.8rem'} width={'9rem'} />
+          <Skeleton variant={'rounded'} height={'1rem'} width={'10rem'} />
+          <Skeleton variant={'rounded'} height={'1rem'} width={'10rem'} />
+          <Skeleton variant={'rounded'} height={'1rem'} width={'8rem'} />
+          <Skeleton variant={'rounded'} height={'0.75rem'} width={'10rem'} />
+          <Skeleton variant={'rounded'} height={'1rem'} width={'8rem'} />
         </BackgroundBox>
       </Box>
     </Card>

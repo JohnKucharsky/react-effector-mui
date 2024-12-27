@@ -1,3 +1,6 @@
 - add refresh button everywhere, refresh, tooltip it will reset all changes
 - yup schema
 - fields spacing
+- on click detailed info
+- divide create and delete
+- handleClose on create

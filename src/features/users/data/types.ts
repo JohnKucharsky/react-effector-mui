@@ -32,7 +32,7 @@ export const UserSchema = z.object({
 
 export type User = z.infer<typeof UserSchema>
 
-type Address = z.infer<typeof AddressSchema>
+export type Address = z.infer<typeof AddressSchema>
 type Company = z.infer<typeof CompanySchema>
 type Geo = z.infer<typeof GeoSchema>
 export type PartialUser = {

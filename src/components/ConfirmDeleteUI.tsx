@@ -1,24 +1,25 @@
-import { type FC } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
 import { Box, Button, Dialog, IconButton, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { ButtonError, Transition } from './StyledComponents/ConfirmDeleteStyles'
 import AbsoluteWrapper from '@/components/AbsoluteWrapper'
 
-const ConfirmDeleteUI: FC<{
-  openConfirmDelete: boolean
-  closeConfirmDelete: () => void
-  handleDeleteCompleted: () => Promise<void>
-  deleteWarningText: string
-  deleteTitle?: string
-}> = ({
+export default function ConfirmDeleteUI({
   openConfirmDelete,
   closeConfirmDelete,
   handleDeleteCompleted,
   deleteWarningText,
-  deleteTitle,
-}) => {
+}: {
+  openConfirmDelete: boolean
+  closeConfirmDelete: () => void
+  handleDeleteCompleted: () => Promise<void>
+  deleteWarningText: string
+}) {
   const { t } = useTranslation()
+
+  const deleteCompeted = () => {
+    handleDeleteCompleted().catch(console.error)
+  }
 
   return (
     <Dialog
@@ -59,16 +60,10 @@ const ConfirmDeleteUI: FC<{
         >
           {t('Cancel')}
         </Button>
-        <ButtonError
-          onClick={handleDeleteCompleted}
-          fullWidth
-          variant="contained"
-        >
-          {deleteTitle ? t(deleteTitle as any, {}) : t('Delete')}
+        <ButtonError onClick={deleteCompeted} fullWidth variant="contained">
+          {t('Delete')}
         </ButtonError>
       </Box>
     </Dialog>
   )
 }
-
-export default ConfirmDeleteUI

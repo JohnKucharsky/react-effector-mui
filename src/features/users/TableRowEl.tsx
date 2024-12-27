@@ -9,6 +9,7 @@ import {
   useTheme,
 } from '@mui/material'
 import { useStoreMap, useUnit } from 'effector-react'
+import { formatAddress } from '@/features/users/data/service.tsx'
 import { usersStore } from '@/features/users/data/store'
 import { type User } from '@/features/users/data/types'
 import Edit from '@/features/users/Edit'
@@ -57,16 +58,17 @@ export default function TableRowEl({ user }: { user: User }) {
           />
         </TableCell>
 
-        <TableCell onClick={handleEditOpen}>
+        <TableCell>
           <Typography variant="h5">{user.name}</Typography>
         </TableCell>
-        <TableCell onClick={handleEditOpen}>
+        <TableCell>
           <Typography variant="h5">{user.username}</Typography>
         </TableCell>
-        <TableCell onClick={handleEditOpen}>{user.email}</TableCell>
-        <TableCell onClick={handleEditOpen}>{user.phone}</TableCell>
-        <TableCell onClick={handleEditOpen}>{user.website}</TableCell>
-        <TableCell onClick={handleEditOpen}>{user.address.city}</TableCell>
+        <TableCell>{user.email}</TableCell>
+        <TableCell>{user.phone}</TableCell>
+        <TableCell>{user.website}</TableCell>
+        <TableCell>{formatAddress(user.address)}</TableCell>
+        <TableCell onClick={handleEditOpen}>{user.company.name}</TableCell>
       </TableRow>
     </>
   )

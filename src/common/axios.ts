@@ -8,7 +8,9 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
-    console.error(error.message)
-    return Promise.reject(error)
+    if (error instanceof Error) {
+      console.error(error.message)
+      return Promise.reject(error)
+    }
   },
 )

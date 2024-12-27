@@ -1,6 +1,6 @@
 interface Resources {
-  "en": {
-    "deleteWarningUsers": "Hi {{name}}!",
+  "translation": {
+    "deleteWarningUsers": "This user will be deleted only from app, JSON placeholder doesn't save changes",
     "couldNotFindSearchedUsers": "Could not find searched users",
     "createUser": "Create user",
     "max64": "Max 64 characters",
@@ -24,7 +24,7 @@ interface Resources {
     "Street": "Street",
     "Suite": "Suite",
     "City": "City",
-    "ZipCode": "ZipCode",
+    "ZipCode": "Zip Code",
     "companyName": "Company name",
     "Refresh": "Refresh"
   }

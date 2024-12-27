@@ -1,16 +1,9 @@
-import CloseIcon from '@mui/icons-material/Close'
-import {
-  DialogContent,
-  DialogTitle,
-  IconButton,
-  Typography,
-} from '@mui/material'
+import { Box, DialogContent, DialogTitle, Typography } from '@mui/material'
 import { useUnit } from 'effector-react'
 import { Formik } from 'formik'
 import { useTranslation } from 'react-i18next'
 import { object } from 'yup'
 import DialogActionsEl from '@/components/DialogActionsEl'
-import { BackgroundBox } from '@/components/StyledComponents/FormsBackgroundAndLine'
 import { addUserFx } from '@/features/users/data/api'
 import { userInputOutput } from '@/features/users/data/input-output'
 import { useYupSchemaUsers } from '@/features/users/data/service'
@@ -22,23 +15,8 @@ export default function Create() {
   const { t } = useTranslation()
   const schema = useYupSchemaUsers()
 
-  const handleClose = () => null
-
   return (
     <>
-      <IconButton
-        sx={{
-          position: 'absolute',
-          top: '0.5rem',
-          right: '0.5rem',
-          zIndex: 2000,
-        }}
-        onClick={handleClose}
-        size="small"
-        color={'primary'}
-      >
-        <CloseIcon />
-      </IconButton>
       <DialogTitle
         sx={{
           px: { xs: 1, md: 2 },
@@ -61,7 +39,7 @@ export default function Create() {
             await addUser(userInputOutput.formatValues(restValues))
 
             resetForm()
-            handleClose()
+            // handleClose()
           } catch (err) {
             if (err instanceof Error) {
               setErrors({
@@ -87,7 +65,7 @@ export default function Create() {
                   py: 1,
                 }}
               >
-                <BackgroundBox gap={'0.75rem'}>
+                <Box display={'grid'} gap={1}>
                   <SameFields
                     touched={touched}
                     errors={errors}
@@ -95,7 +73,7 @@ export default function Create() {
                     handleChange={handleChange}
                     handleBlur={handleBlur}
                   />
-                </BackgroundBox>
+                </Box>
               </DialogContent>
               <DialogActionsEl
                 submit={errors.submit}
