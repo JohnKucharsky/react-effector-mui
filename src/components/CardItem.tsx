@@ -5,7 +5,7 @@ export default function CardItem({
   text,
 }: {
   title: string
-  text: string
+  text?: string
 }) {
   return (
     <Box>

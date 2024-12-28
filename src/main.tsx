@@ -7,13 +7,19 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import Users from '@/features/users/Users'
 import './i18n/i18n'
+import Layout from '@/layout/Layout.tsx'
+import ThemeWrapper from '@/layout/ThemeWrapper.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<Users />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeWrapper>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Users />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeWrapper>
   </StrictMode>,
 )

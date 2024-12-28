@@ -10,6 +10,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material'
@@ -18,32 +19,34 @@ import { useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
 import ConfirmDelete from '@/components/ConfirmDelete'
 import CouldNotFindSearched from '@/components/CouldNotFindSearched'
-import CreateAndDelete from '@/components/CreateAndDelete'
 import { GridSkeletons } from '@/components/GridSkeletons'
+import RefreshButton from '@/components/RefreshButton.tsx'
+import RemoveEl from '@/components/RemoveEl.tsx'
+import FlexWrap from '@/components/StyledComponents/FlexWrap.tsx'
 import TableCheckboxEl from '@/components/TableCheckboxEl'
 import TableEmptyText from '@/components/TableEmptyText'
 import TableSkeletons from '@/components/TableSkeletons'
 import CardEl from '@/features/users/CardEl'
 import Create from '@/features/users/Create.tsx'
 import { $users, deleteUserFx, getUsersFx } from '@/features/users/data/api.ts'
+import { usersStarted } from '@/features/users/data/initializers.ts'
 import { usersStore } from '@/features/users/data/store.ts'
-import Query from '@/features/users/Query'
 import TableRowEl from '@/features/users/TableRowEl.tsx'
 
 export default function Users() {
-  const [getUsers] = useUnit([getUsersFx])
+  const [pageStarted] = useUnit([usersStarted])
 
   const { t } = useTranslation()
   const theme = useTheme()
   const isUpMd = useMediaQuery(theme.breakpoints.up('md'))
 
   useEffect(() => {
-    getUsers({}).catch(console.error)
-  }, [getUsers])
+    pageStarted()
+  }, [pageStarted])
 
   return (
     <>
-      <Box px={{ xs: 1, sm: 2 }} pt={1}>
+      <Box px={{ xs: 1, sm: 2 }} pt={1} pb={2}>
         {isUpMd ? <TableView /> : <GridView />}
       </Box>
       <ConfirmDelete
@@ -59,7 +62,11 @@ export default function Users() {
 }
 
 const GridView = () => {
-  const [users, loading] = useUnit([$users, getUsersFx.pending])
+  const [users, loading, pageStarted] = useUnit([
+    $users,
+    getUsersFx.pending,
+    usersStarted,
+  ])
 
   const { t } = useTranslation()
 
@@ -72,14 +79,27 @@ const GridView = () => {
           mb: 2,
         }}
       >
-        <Stack direction={{ xs: 'column', s: 'row' }} spacing={1}>
-          <Query />
-          <CreateAndDelete
-            title={t('Create')}
-            $selectedBulkActions={usersStore.$selectedBulkActions}
-            handleOpenConfirmDeleteEv={usersStore.handleOpenConfirmDelete}
-            addItemEl={<Create />}
-          />
+        <Stack
+          direction={'row'}
+          alignItems={'flex-start'}
+          justifyContent={'space-between'}
+          p={2}
+          spacing={1}
+        >
+          <FlexWrap gap={1} width={'100%'}>
+            <Typography variant={'h5'} fontWeight={'bold'}>
+              {t('Users')}
+            </Typography>
+            <RefreshButton onRefresh={pageStarted} loading={loading} />
+          </FlexWrap>
+
+          <Stack direction={'row'} alignItems={'center'} gap={1}>
+            <RemoveEl
+              $selectedBulkActions={usersStore.$selectedBulkActions}
+              handleOpenConfirmDeleteEv={usersStore.handleOpenConfirmDelete}
+            />
+            <Create />
+          </Stack>
         </Stack>
       </Card>
 
@@ -90,7 +110,7 @@ const GridView = () => {
       />
 
       {loading ? (
-        <GridSkeletons skeletonNum={2} />
+        <GridSkeletons skeletonNum={4} />
       ) : (
         <Grid container spacing={1}>
           {users?.map((item) => <CardEl key={item.id} user={item} />)}
@@ -102,25 +122,33 @@ const GridView = () => {
 
 const TableView = () => {
   const [users, loading] = useUnit([$users, getUsersFx.pending])
+  const [pageStarted] = useUnit([usersStarted])
 
   const { t } = useTranslation()
 
   return (
-    <Card>
+    <Card elevation={3}>
       <Stack
         direction={'row'}
+        alignItems={'flex-start'}
+        justifyContent={'space-between'}
         p={2}
         spacing={1}
-        justifyContent={'space-between'}
-        alignItems={'flex-start'}
       >
-        <Query />
-        <CreateAndDelete
-          title={t('Create')}
-          $selectedBulkActions={usersStore.$selectedBulkActions}
-          handleOpenConfirmDeleteEv={usersStore.handleOpenConfirmDelete}
-          addItemEl={<Create />}
-        />
+        <FlexWrap gap={1} width={'100%'}>
+          <Typography variant={'h5'} fontWeight={'bold'}>
+            {t('Users')}
+          </Typography>
+          <RefreshButton onRefresh={pageStarted} loading={loading} />
+        </FlexWrap>
+
+        <Stack direction={'row'} alignItems={'center'} gap={1}>
+          <RemoveEl
+            $selectedBulkActions={usersStore.$selectedBulkActions}
+            handleOpenConfirmDeleteEv={usersStore.handleOpenConfirmDelete}
+          />
+          <Create />
+        </Stack>
       </Stack>
 
       <Divider />
@@ -153,7 +181,7 @@ const TableView = () => {
 
           {loading ? (
             <TableBody>
-              <TableSkeletons cellsCount={8} skeletonRowsCount={4} />
+              <TableSkeletons cellsCount={8} skeletonRowsCount={10} />
             </TableBody>
           ) : (
             <TableBody>

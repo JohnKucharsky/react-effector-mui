@@ -37,7 +37,7 @@ export default function TableRowEl({ user }: { user: User }) {
       <Dialog
         fullScreen={isDownSm}
         fullWidth
-        maxWidth="md"
+        maxWidth="xs"
         open={open}
         onClose={handleEditClose}
       >
@@ -59,16 +59,16 @@ export default function TableRowEl({ user }: { user: User }) {
         </TableCell>
 
         <TableCell>
-          <Typography variant="h5">{user.name}</Typography>
+          <Typography variant="h6">{user.name}</Typography>
         </TableCell>
         <TableCell>
-          <Typography variant="h5">{user.username}</Typography>
+          <Typography variant="h6">{user.username}</Typography>
         </TableCell>
         <TableCell>{user.email}</TableCell>
         <TableCell>{user.phone}</TableCell>
         <TableCell>{user.website}</TableCell>
         <TableCell>{formatAddress(user.address)}</TableCell>
-        <TableCell onClick={handleEditOpen}>{user.company.name}</TableCell>
+        <TableCell onClick={handleEditOpen}>{user.company?.name}</TableCell>
       </TableRow>
     </>
   )

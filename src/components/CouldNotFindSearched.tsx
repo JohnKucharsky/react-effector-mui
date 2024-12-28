@@ -17,7 +17,6 @@ export default function CouldNotFindSearched({
         }}
         variant="h3"
         fontWeight="normal"
-        color="text.secondary"
         align="center"
       >
         {title}

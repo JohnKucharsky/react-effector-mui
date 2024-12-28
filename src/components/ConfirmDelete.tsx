@@ -22,17 +22,18 @@ export default function ConfirmDelete<T>({
     id,
     handleCloseConfirmDelete,
     deleteItem,
+    loading,
     selectedItems,
   ] = useUnit([
     $confirmDeleteOpened,
     $idToDelete,
     handleCloseConfirmDeleteEv,
     deleteItemFx,
+    deleteItemFx.pending,
     $selectedItems,
   ])
 
   const handleDeleteCompleted = async () => {
-    handleCloseConfirmDelete()
     try {
       if (id) {
         await deleteItem(id)
@@ -43,11 +44,14 @@ export default function ConfirmDelete<T>({
       }
     } catch (e) {
       console.error(e)
+    } finally {
+      handleCloseConfirmDelete()
     }
   }
 
   return (
     <ConfirmDeleteUI
+      loading={loading}
       openConfirmDelete={confirmDeleteOpened}
       closeConfirmDelete={handleCloseConfirmDelete}
       handleDeleteCompleted={handleDeleteCompleted}

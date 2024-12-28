@@ -1,19 +1,22 @@
 import CloseIcon from '@mui/icons-material/Close'
-import { Box, Button, Dialog, IconButton, Typography } from '@mui/material'
+import { LoadingButton } from '@mui/lab'
+import { Box, Button, Dialog, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import { ButtonError, Transition } from './StyledComponents/ConfirmDeleteStyles'
-import AbsoluteWrapper from '@/components/AbsoluteWrapper'
+import { Transition } from './StyledComponents/ConfirmDeleteStyles'
+import CloseButton from '@/components/StyledComponents/CloseButton.tsx'
 
 export default function ConfirmDeleteUI({
   openConfirmDelete,
   closeConfirmDelete,
   handleDeleteCompleted,
   deleteWarningText,
+  loading,
 }: {
   openConfirmDelete: boolean
   closeConfirmDelete: () => void
   handleDeleteCompleted: () => Promise<void>
   deleteWarningText: string
+  loading: boolean
 }) {
   const { t } = useTranslation()
 
@@ -35,19 +38,18 @@ export default function ConfirmDeleteUI({
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
-        p={2}
+        p={3}
       >
-        <AbsoluteWrapper topInHalfRem={1} rightInHalfRem={1}>
-          <IconButton onClick={closeConfirmDelete} size="small">
-            <CloseIcon />
-          </IconButton>
-        </AbsoluteWrapper>
+        <CloseButton color={'primary'} onClick={closeConfirmDelete}>
+          <CloseIcon />
+        </CloseButton>
         <Typography
           sx={{
             mb: 3,
-            pr: 2,
+            pr: 4,
           }}
-          variant="h4"
+          variant="h5"
+          fontWeight={'bold'}
         >
           {deleteWarningText}
         </Typography>
@@ -60,9 +62,15 @@ export default function ConfirmDeleteUI({
         >
           {t('Cancel')}
         </Button>
-        <ButtonError onClick={deleteCompeted} fullWidth variant="contained">
+        <LoadingButton
+          loading={loading}
+          color={'error'}
+          onClick={deleteCompeted}
+          fullWidth
+          variant="contained"
+        >
           {t('Delete')}
-        </ButtonError>
+        </LoadingButton>
       </Box>
     </Dialog>
   )

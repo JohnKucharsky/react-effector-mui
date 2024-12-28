@@ -1,9 +1,10 @@
 import { Effect } from 'effector'
-import { ZodError } from 'zod'
 import { ApiRouteType } from '@/common/enums'
 
 export const logZodError = (error: unknown, route: ApiRouteType) => {
-  console.error(route, (error as ZodError).message)
+  if (error instanceof Error) {
+    console.error(route, error.message)
+  }
 }
 
 export const logEffectError = (

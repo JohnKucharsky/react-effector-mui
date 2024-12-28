@@ -18,7 +18,7 @@ export default function TableSkeletons({
               <TableCell key={idx}>
                 <Skeleton
                   width={'100%'}
-                  height={'1.5rem'}
+                  height={'2rem'}
                   animation={'wave'}
                   variant={'rounded'}
                 />

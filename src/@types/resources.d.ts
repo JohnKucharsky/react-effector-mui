@@ -1,12 +1,12 @@
 interface Resources {
   "translation": {
-    "deleteWarningUsers": "This user will be deleted only from app, JSON placeholder doesn't save changes",
-    "couldNotFindSearchedUsers": "Could not find searched users",
-    "createUser": "Create user",
-    "max64": "Max 64 characters",
-    "max10": "Max 10 characters",
-    "fieldRequired": "Field required",
-    "onlyNumbers": "Only numbers",
+    "deleteWarningUsers": "This user will only be deleted from the app. JSON Placeholder does not save changes.",
+    "couldNotFindSearchedUsers": "No users were found.",
+    "createUser": "Create User",
+    "max64": "Maximum 64 characters",
+    "max10": "Maximum 10 characters",
+    "fieldRequired": "This field is required",
+    "onlyNumbers": "Only numeric values are allowed",
     "Create": "Create",
     "Search": "Search",
     "Edit": "Edit",
@@ -19,14 +19,20 @@ interface Resources {
     "Company": "Company",
     "Cancel": "Cancel",
     "Delete": "Delete",
-    "deleteSelected": "Delete selected items",
-    "selectAll": "Select all items",
+    "deleteSelected": "Delete Selected Items",
+    "selectAll": "Select All Items",
     "Street": "Street",
     "Suite": "Suite",
     "City": "City",
     "ZipCode": "Zip Code",
-    "companyName": "Company name",
-    "Refresh": "Refresh"
+    "companyName": "Company Name",
+    "Refresh": "Refresh, it will reset all changes",
+    "Users": "Users",
+    "phoneNumber": "Phone Number",
+    "pickedColor": "Picked Color",
+    "Light": "Light",
+    "Dark": "Dark",
+    "Settings": "Settings"
   }
 }
 

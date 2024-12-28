@@ -15,10 +15,9 @@ export default function TableEmptyText({
             sx={{
               py: 10,
             }}
-            variant="h3"
-            fontWeight="normal"
-            color="text.secondary"
+            variant="h4"
             align="center"
+            color={'textSecondary'}
           >
             {title}
           </Typography>

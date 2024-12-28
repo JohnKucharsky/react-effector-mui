@@ -1,6 +1,20 @@
-- add refresh button everywhere, refresh, tooltip it will reset all changes
-- yup schema
-- fields spacing
+- check icon to color picker
 - on click detailed info
-- divide create and delete
-- handleClose on create
+- pages to add
+- icon button icon and button size to look at
+- could not find searched to rename
+- name query to rename
+
++ max width table, and max width header top
++ dark mode
++ handleClose on create
++ phone field to do
++ divide create and delete
++ yup schema
++ add refresh button everywhere, refresh, tooltip it will reset all changes
++ pick app color
++ fields spacing
++ header
+
+pending
+- remove lodash with custom functions

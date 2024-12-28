@@ -34,7 +34,7 @@ export default function CardEl({ user }: { user: User }) {
       <Dialog
         fullScreen={isDownSm}
         fullWidth
-        maxWidth="md"
+        maxWidth="xs"
         open={open}
         onClose={() => setOpen(false)}
       >
@@ -47,6 +47,7 @@ export default function CardEl({ user }: { user: User }) {
             pt={1.5}
             direction={'row'}
             justifyContent={'space-between'}
+            alignItems={'flex-start'}
           >
             <Typography variant="h5" fontWeight={'bold'}>
               {user.name}

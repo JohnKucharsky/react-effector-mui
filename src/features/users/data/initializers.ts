@@ -7,7 +7,7 @@ export const usersStarted = createEvent()
 sample({
   clock: [usersStore.handleQueryChangeEv, usersStarted],
   source: {
-    query: usersStore.$query,
+    name: usersStore.$query,
   },
   fn: (params) => params,
   target: getUsersFx,

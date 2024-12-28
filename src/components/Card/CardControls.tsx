@@ -14,15 +14,15 @@ export default function CardControls({
 
   return (
     <>
-      <Stack direction={'row'} alignItems={'center'} gap={0.5}>
+      <Stack direction={'row'} alignItems={'center'}>
         {handleEditOpen ? (
           <Tooltip title={t('Edit')}>
             <IconButton
-              color={'secondary'}
+              color={'primary'}
               size={'small'}
               onClick={handleEditOpen}
             >
-              <EditOutlinedIcon fontSize="small" />
+              <EditOutlinedIcon fontSize="medium" />
             </IconButton>
           </Tooltip>
         ) : null}
@@ -33,7 +33,7 @@ export default function CardControls({
               size={'small'}
               onClick={handleOpenConfirmDelete}
             >
-              <DeleteOutlineIcon />
+              <DeleteOutlineIcon fontSize={'medium'} />
             </IconButton>
           </Tooltip>
         )}

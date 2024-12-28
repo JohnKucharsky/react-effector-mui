@@ -1,15 +1,57 @@
-import { Box, DialogContent, DialogTitle, Typography } from '@mui/material'
+import { useState } from 'react'
+import AddTwoToneIcon from '@mui/icons-material/AddTwoTone'
+import CloseIcon from '@mui/icons-material/Close'
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material'
 import { useUnit } from 'effector-react'
 import { Formik } from 'formik'
 import { useTranslation } from 'react-i18next'
 import { object } from 'yup'
 import DialogActionsEl from '@/components/DialogActionsEl'
+import CloseButton from '@/components/StyledComponents/CloseButton.tsx'
 import { addUserFx } from '@/features/users/data/api'
 import { userInputOutput } from '@/features/users/data/input-output'
 import { useYupSchemaUsers } from '@/features/users/data/service'
 import SameFields from '@/features/users/SameFields'
 
 export default function Create() {
+  const [opened, setOpened] = useState(false)
+
+  const { t } = useTranslation()
+  const theme = useTheme()
+  const isDownSm = useMediaQuery(theme.breakpoints.down('sm'))
+
+  return (
+    <>
+      <Dialog
+        fullScreen={isDownSm}
+        fullWidth
+        maxWidth="xs"
+        open={opened}
+        onClose={() => setOpened(false)}
+      >
+        <CreateContent handleClose={() => setOpened(false)} />
+      </Dialog>
+
+      <Button
+        variant={'contained'}
+        startIcon={<AddTwoToneIcon />}
+        onClick={() => setOpened(true)}
+      >
+        {t('Create')}
+      </Button>
+    </>
+  )
+}
+
+function CreateContent({ handleClose }: { handleClose: () => void }) {
   const [addUser, loading] = useUnit([addUserFx, addUserFx.pending])
 
   const { t } = useTranslation()
@@ -17,16 +59,15 @@ export default function Create() {
 
   return (
     <>
+      <CloseButton onClick={handleClose} color={'primary'}>
+        <CloseIcon />
+      </CloseButton>
       <DialogTitle
         sx={{
           px: { xs: 1, md: 2 },
-          pt: 2,
-          pb: 0,
         }}
       >
-        <Typography variant="h4" gutterBottom>
-          {t('Create')}
-        </Typography>
+        {t('createUser')}
       </DialogTitle>
       <Formik
         initialValues={userInputOutput.emptyInitialValues}
@@ -39,7 +80,7 @@ export default function Create() {
             await addUser(userInputOutput.formatValues(restValues))
 
             resetForm()
-            // handleClose()
+            handleClose()
           } catch (err) {
             if (err instanceof Error) {
               setErrors({

@@ -1,17 +1,11 @@
 import CloseIcon from '@mui/icons-material/Close'
-import {
-  Box,
-  DialogContent,
-  DialogTitle,
-  IconButton,
-  Typography,
-} from '@mui/material'
+import { Box, DialogContent, DialogTitle } from '@mui/material'
 import { useUnit } from 'effector-react'
 import { Formik } from 'formik'
 import { useTranslation } from 'react-i18next'
 import { object } from 'yup'
 import DialogActionsEl from '@/components/DialogActionsEl'
-import { BackgroundBox } from '@/components/StyledComponents/FormsBackgroundAndLine'
+import CloseButton from '@/components/StyledComponents/CloseButton.tsx'
 import { editUserFx } from '@/features/users/data/api'
 import { userInputOutput } from '@/features/users/data/input-output'
 import { useYupSchemaUsers } from '@/features/users/data/service'
@@ -36,29 +30,16 @@ export default function Edit({
 
   return (
     <>
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '0.5rem',
-          right: '0.5rem',
-          zIndex: 2000,
-        }}
-      >
-        <IconButton onClick={handleEditClose} size="small" color={'primary'}>
-          <CloseIcon />
-        </IconButton>
-      </Box>
+      <CloseButton onClick={handleEditClose} color={'primary'}>
+        <CloseIcon />
+      </CloseButton>
 
       <DialogTitle
         sx={{
           px: { xs: 1, md: 2 },
-          pt: 2,
-          pb: 0,
         }}
       >
-        <Typography variant="h4" gutterBottom>
-          {t('Edit')}
-        </Typography>
+        {t('Edit')}
       </DialogTitle>
       <Formik
         initialValues={userInputOutput.getInitialValues(initialValues)}
@@ -99,7 +80,7 @@ export default function Edit({
                 py: 1,
               }}
             >
-              <BackgroundBox gap={'0.75rem'}>
+              <Box display={'grid'} gap={1}>
                 <SameFields
                   touched={touched}
                   errors={errors}
@@ -107,7 +88,7 @@ export default function Edit({
                   handleChange={handleChange}
                   handleBlur={handleBlur}
                 />
-              </BackgroundBox>
+              </Box>
             </DialogContent>
             <DialogActionsEl
               submit={errors.submit}

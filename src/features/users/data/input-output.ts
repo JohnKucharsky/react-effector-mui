@@ -1,4 +1,4 @@
-import { PartialUser, User } from '@/features/users/data/types'
+import { User } from '@/features/users/data/types'
 
 export interface UserFields {
   name: string
@@ -27,21 +27,21 @@ const emptyInitialValues = {
   submit: null as unknown,
 }
 
-const getInitialValues = (initialValues: User) => ({
-  name: initialValues.name,
-  userName: initialValues.username,
-  email: initialValues.email,
-  phone: initialValues.phone,
-  website: initialValues.website,
-  street: initialValues.address.street,
-  suite: initialValues.address.suite,
-  city: initialValues.address.city,
-  zipcode: initialValues.address.zipcode,
-  companyName: initialValues.company.name,
+const getInitialValues = (initialValues: User): typeof emptyInitialValues => ({
+  name: initialValues.name || '',
+  userName: initialValues.username || '',
+  email: initialValues.email || '',
+  phone: initialValues.phone || '',
+  website: initialValues.website || '',
+  street: initialValues.address?.street || '',
+  suite: initialValues.address?.suite || '',
+  city: initialValues.address?.city || '',
+  zipcode: initialValues.address?.zipcode || '',
+  companyName: initialValues.company?.name || '',
   submit: null,
 })
 
-const formatValues = (inputValues: UserFields): PartialUser => ({
+const formatValues = (inputValues: UserFields): Omit<User, 'id'> => ({
   name: inputValues.name,
   username: inputValues.userName,
   email: inputValues.email,

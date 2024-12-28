@@ -20,7 +20,6 @@ export default function CheckboxEl({
         <Checkbox
           checked={checked}
           onChange={(event) => setChecked(event.target.checked)}
-          color="primary"
         />
       }
       label={title}

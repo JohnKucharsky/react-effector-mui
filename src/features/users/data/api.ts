@@ -14,24 +14,14 @@ export const $users = createStore<User[] | null>(null)
 
 export const getUsersFx = createEffect<
   {
-    page?: number
-    limit?: number
-    query?: string
-    sortOrder?: string
-    orderBy?: string
+    name?: string
     id?: string
   },
   User[]
->(async ({ query, limit = 100, page, sortOrder, orderBy, id }) => {
+>(async ({ name, id }) => {
   const res = await axiosInstance.get<User[]>(apiRoutes['/users'], {
     params: {
-      country: query || undefined,
-      city: query || undefined,
-      street: query || undefined,
-      limit: limit || undefined,
-      page: page ? page + 1 : undefined,
-      sortOrder: sortOrder || undefined,
-      orderBy: orderBy || undefined,
+      username: name || undefined,
       id: id || undefined,
     },
   })
