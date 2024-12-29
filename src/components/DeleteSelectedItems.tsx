@@ -13,7 +13,7 @@ export default function DeleteSelectedItems({
 
   return (
     <Tooltip title={t('deleteSelected')}>
-      <IconButton size={'small'} sx={sx} color={'error'} onClick={onClick}>
+      <IconButton sx={sx} color={'error'} onClick={onClick}>
         <DeleteTwoToneIcon />
       </IconButton>
     </Tooltip>

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { string } from 'yup'
-import { Address } from '@/features/users/data/types.ts'
+import { Address, Order } from '@/features/users/data/types.ts'
 
 export const useYupSchemaUsers = () => {
   const { t } = useTranslation()
@@ -18,11 +18,32 @@ export const useYupSchemaUsers = () => {
   }
 }
 
-export const formatAddress = (address?: Address): string => {
-  if (!address) return ''
+export const formatAddress = (address: Address): string => {
   const { street, suite, city } = address
 
   const parts = [street, suite, city].filter(Boolean)
 
   return parts.join(', ')
+}
+
+function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
+  if (b[orderBy] < a[orderBy]) {
+    return -1
+  }
+  if (b[orderBy] > a[orderBy]) {
+    return 1
+  }
+  return 0
+}
+
+export function getComparator<Key extends keyof any>(
+  order: Order,
+  orderBy: Key,
+): (
+  a: { [key in Key]: string | number | undefined },
+  b: { [key in Key]: string | number | undefined },
+) => number {
+  return order === 'desc'
+    ? (a, b) => descendingComparator(a, b, orderBy)
+    : (a, b) => -descendingComparator(a, b, orderBy)
 }

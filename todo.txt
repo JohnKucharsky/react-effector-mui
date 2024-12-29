@@ -4,6 +4,8 @@
 - icon button icon and button size to look at
 - could not find searched to rename
 - name query to rename
+- factories, name to think about, do I need them
+- Key extends keyof any to fix
 
 + max width table, and max width header top
 + dark mode

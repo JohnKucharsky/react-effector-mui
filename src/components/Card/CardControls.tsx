@@ -17,23 +17,15 @@ export default function CardControls({
       <Stack direction={'row'} alignItems={'center'}>
         {handleEditOpen ? (
           <Tooltip title={t('Edit')}>
-            <IconButton
-              color={'primary'}
-              size={'small'}
-              onClick={handleEditOpen}
-            >
-              <EditOutlinedIcon fontSize="medium" />
+            <IconButton color={'primary'} onClick={handleEditOpen}>
+              <EditOutlinedIcon />
             </IconButton>
           </Tooltip>
         ) : null}
         {handleOpenConfirmDelete && (
           <Tooltip title={t('Delete')}>
-            <IconButton
-              color={'error'}
-              size={'small'}
-              onClick={handleOpenConfirmDelete}
-            >
-              <DeleteOutlineIcon fontSize={'medium'} />
+            <IconButton color={'error'} onClick={handleOpenConfirmDelete}>
+              <DeleteOutlineIcon />
             </IconButton>
           </Tooltip>
         )}

@@ -28,16 +28,16 @@ const emptyInitialValues = {
 }
 
 const getInitialValues = (initialValues: User): typeof emptyInitialValues => ({
-  name: initialValues.name || '',
-  userName: initialValues.username || '',
-  email: initialValues.email || '',
-  phone: initialValues.phone || '',
-  website: initialValues.website || '',
-  street: initialValues.address?.street || '',
-  suite: initialValues.address?.suite || '',
-  city: initialValues.address?.city || '',
-  zipcode: initialValues.address?.zipcode || '',
-  companyName: initialValues.company?.name || '',
+  name: initialValues.name,
+  userName: initialValues.username,
+  email: initialValues.email,
+  phone: initialValues.phone,
+  website: initialValues.website,
+  street: initialValues.address.street,
+  suite: initialValues.address.suite,
+  city: initialValues.address.city,
+  zipcode: initialValues.address.zipcode,
+  companyName: initialValues.company.name,
   submit: null,
 })
 

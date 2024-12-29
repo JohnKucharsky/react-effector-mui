@@ -1,7 +1,11 @@
 import { useState } from 'react'
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
+import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import {
   Checkbox,
   Dialog,
+  IconButton,
+  Stack,
   TableCell,
   TableRow,
   Typography,
@@ -68,7 +72,17 @@ export default function TableRowEl({ user }: { user: User }) {
         <TableCell>{user.phone}</TableCell>
         <TableCell>{user.website}</TableCell>
         <TableCell>{formatAddress(user.address)}</TableCell>
-        <TableCell onClick={handleEditOpen}>{user.company?.name}</TableCell>
+        <TableCell>{user.company.name}</TableCell>
+        <TableCell>
+          <Stack direction={'row'} alignItems={'center'}>
+            <IconButton color={'primary'}>
+              <OpenInNewIcon />
+            </IconButton>
+            <IconButton color={'primary'} onClick={handleEditOpen}>
+              <EditOutlinedIcon />
+            </IconButton>
+          </Stack>
+        </TableCell>
       </TableRow>
     </>
   )
