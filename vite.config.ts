@@ -1,6 +1,7 @@
 import * as path from 'node:path'
 import react from '@vitejs/plugin-react'
 import { defineConfig, loadEnv, ProxyOptions } from 'vite'
+import vercel from 'vite-plugin-vercel'
 import { apiRoutes } from './src/common/enums.ts'
 
 // https://vite.dev/config/
@@ -16,14 +17,17 @@ export default defineConfig(({ mode }) => {
       secure: false,
     }
   }
-
+  console.log(proxy)
   return {
-    plugins: [react()],
+    plugins: [react(), vercel()],
     resolve: {
       alias: { '@': path.resolve(__dirname, 'src').replace(/\\/g, '/') },
     },
     server: {
       proxy,
+    },
+    vercel: {
+      rewrites: [{ source: '/users/:path*', destination: env.VITE_API_URL }],
     },
   }
 })
