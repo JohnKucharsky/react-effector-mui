@@ -30,15 +30,15 @@ export default defineConfig(({ mode }) => {
       rewrites: [
         {
           source: '/users/:path*',
-          destination: `/${env.VITE_API_URL}/users/:path*`,
+          destination: `${env.VITE_API_URL}/users/:path*`,
         },
         {
           source: '/posts/:path*',
-          destination: `/${env.VITE_API_URL}/posts/:path*`,
+          destination: `${env.VITE_API_URL}/posts/:path*`,
         },
         {
           source: '/comments/:path*',
-          destination: `/${env.VITE_API_URL}/comments/:path*`,
+          destination: `${env.VITE_API_URL}/comments/:path*`,
         },
       ],
     },
