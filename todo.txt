@@ -1,12 +1,15 @@
-- check icon to color picker
-- on click detailed info
++ icon button icon and button size to look at
++ check icon to color picker
++ on click detailed info
 - pages to add
-- icon button icon and button size to look at
-- could not find searched to rename
 - name query to rename
 - factories, name to think about, do I need them
-- Key extends keyof any to fix
++ Key extends keyof any to fix
 - client search to do
+- accordion for posts and table inside for comments
+- pages for comments and posts with links
+- remove duplications and unnecessary elements
+- use table with virtualization and pagination
 
 + max width table, and max width header top
 + dark mode

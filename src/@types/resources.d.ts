@@ -26,6 +26,8 @@ interface Resources {
     "City": "City",
     "ZipCode": "Zip Code",
     "companyName": "Company Name",
+    "catchPhrase": "Catch Phrase",
+    "bs": "Business Specialization",
     "Refresh": "Refresh, it will reset all changes",
     "Users": "Users",
     "phoneNumber": "Phone Number",

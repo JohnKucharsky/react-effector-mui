@@ -26,6 +26,7 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy,
     },
+    // vite proxy doesn't work on vercel
     vercel: {
       rewrites: [
         {

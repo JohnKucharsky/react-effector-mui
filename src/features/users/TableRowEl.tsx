@@ -13,6 +13,7 @@ import {
   useTheme,
 } from '@mui/material'
 import { useStoreMap, useUnit } from 'effector-react'
+import { useNavigate } from 'react-router'
 import { formatAddress } from '@/features/users/data/service.tsx'
 import { usersStore } from '@/features/users/data/store'
 import { type User } from '@/features/users/data/types'
@@ -24,6 +25,7 @@ export default function TableRowEl({ user }: { user: User }) {
 
   const theme = useTheme()
   const isDownSm = useMediaQuery(theme.breakpoints.down('sm'))
+  const navigate = useNavigate()
 
   const isSelected = useStoreMap({
     store: usersStore.$selectedItems,
@@ -75,7 +77,12 @@ export default function TableRowEl({ user }: { user: User }) {
         <TableCell>{user.company.name}</TableCell>
         <TableCell>
           <Stack direction={'row'} alignItems={'center'}>
-            <IconButton color={'primary'}>
+            <IconButton
+              color={'primary'}
+              onClick={() => {
+                navigate(`/user/${user.id}`)?.catch(console.error)
+              }}
+            >
               <OpenInNewIcon />
             </IconButton>
             <IconButton color={'primary'} onClick={handleEditOpen}>

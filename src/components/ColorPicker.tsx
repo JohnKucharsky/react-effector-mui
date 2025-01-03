@@ -1,3 +1,4 @@
+import CheckIcon from '@mui/icons-material/Check'
 import { Box, Stack, Typography } from '@mui/material'
 import * as muiColors from '@mui/material/colors'
 import { useUnit } from 'effector-react'
@@ -64,13 +65,19 @@ const ColorPicker = () => {
           <Box
             width={'100%'}
             height={'100%'}
+            display={'grid'}
             key={colorName}
             sx={{
               backgroundColor: shade,
               cursor: 'pointer',
+              placeContent: 'center',
             }}
             onClick={() => handleClick(shade)}
-          />
+          >
+            {colorName === shadeToName[selectedColor] && (
+              <CheckIcon sx={{ color: '#fff', fontSize: '2rem' }} />
+            )}
+          </Box>
         ))}
       </Box>
     </Box>

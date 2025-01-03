@@ -2,8 +2,8 @@ import { Card, Stack, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid2'
 import { useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
-import CouldNotFindSearched from '@/components/CouldNotFindSearched.tsx'
 import { GridSkeletons } from '@/components/GridSkeletons.tsx'
+import NoItems from '@/components/NoItems.tsx'
 import RefreshButton from '@/components/RefreshButton.tsx'
 import RemoveEl from '@/components/RemoveEl.tsx'
 import FlexWrap from '@/components/StyledComponents/FlexWrap.tsx'
@@ -55,7 +55,7 @@ export default function GridView() {
         </Stack>
       </Card>
 
-      <CouldNotFindSearched
+      <NoItems
         length={users?.length}
         title={t('couldNotFindSearchedUsers')}
         loading={loading}

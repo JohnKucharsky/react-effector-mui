@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 
-export default function CouldNotFindSearched({
+export default function NoItems({
   length,
   title,
   loading,
