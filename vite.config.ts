@@ -28,7 +28,10 @@ export default defineConfig(({ mode }) => {
     },
     vercel: {
       rewrites: [
-        { source: '/users:path*', destination: `${env.VITE_API_URL}/users` },
+        {
+          source: '/users:path*',
+          destination: `${env.VITE_API_URL}/users:path*`,
+        },
       ],
     },
   }
