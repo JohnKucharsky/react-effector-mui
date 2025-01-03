@@ -6,6 +6,7 @@
 - name query to rename
 - factories, name to think about, do I need them
 - Key extends keyof any to fix
+- client search to do
 
 + max width table, and max width header top
 + dark mode
