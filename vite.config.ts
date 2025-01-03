@@ -27,7 +27,9 @@ export default defineConfig(({ mode }) => {
       proxy,
     },
     vercel: {
-      rewrites: [{ source: '/users:path*', destination: env.VITE_API_URL }],
+      rewrites: [
+        { source: '/users:path*', destination: `${env.VITE_API_URL}/users` },
+      ],
     },
   }
 })
