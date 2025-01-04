@@ -1,5 +1,18 @@
 import { BoxProps, TypographyProps } from '@mui/material'
 
+export const generateRandomString = (): string => {
+  const length = Math.floor(Math.random() * 11) + 5
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  let result = ''
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length)
+    result += characters[randomIndex]
+  }
+
+  return result
+}
+
 export const typographyPropsObj: Record<
   'mobile' | 'desktop',
   Record<'title' | 'paragraph' | 'paragraphTitle', TypographyProps>

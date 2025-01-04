@@ -3,20 +3,20 @@ import { useUnit } from 'effector-react'
 import DeleteSelectedItems from '@/components/DeleteSelectedItems'
 
 export default function RemoveEl<T>({
-  $selectedBulkActions,
+  $hasSelectedItems,
   handleOpenConfirmDeleteEv,
 }: {
-  $selectedBulkActions: Store<boolean>
+  $hasSelectedItems: Store<boolean>
   handleOpenConfirmDeleteEv: EventCallable<T | null>
 }) {
-  const [selectedBulkActions, handleOpenConfirmDelete] = useUnit([
-    $selectedBulkActions,
+  const [hasSelectedItems, handleOpenConfirmDelete] = useUnit([
+    $hasSelectedItems,
     handleOpenConfirmDeleteEv,
   ])
 
   return (
     <>
-      {selectedBulkActions && (
+      {hasSelectedItems && (
         <DeleteSelectedItems onClick={() => handleOpenConfirmDelete(null)} />
       )}
     </>

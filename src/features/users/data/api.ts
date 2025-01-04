@@ -2,8 +2,8 @@ import { type AxiosResponse } from 'axios'
 import { createEffect, createStore } from 'effector'
 import { z } from 'zod'
 import { axiosInstance } from '@/common/axios'
-import { apiRoutes } from '@/common/enums'
-import { logEffectError, logZodError } from '@/common/formatters'
+import { apiRoutes } from '@/common/constants.ts'
+import { logEffectError, logZodError } from '@/common/loggers.ts'
 import {
   PartialUser,
   type User,

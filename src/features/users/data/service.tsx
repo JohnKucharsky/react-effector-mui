@@ -4,6 +4,7 @@ import { Address, Order, User } from '@/features/users/data/types.ts'
 
 export const useYupSchemaUsers = () => {
   const { t } = useTranslation()
+
   return {
     name: string().min(3).max(64).required(t('fieldRequired')),
     userName: string().min(3).max(64).required(t('fieldRequired')),

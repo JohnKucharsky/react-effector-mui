@@ -1,15 +1,39 @@
 import { createEffect, createStore } from 'effector'
 import { z } from 'zod'
 import { axiosInstance } from '@/common/axios'
-import { apiRoutes } from '@/common/enums'
-import { logEffectError, logZodError } from '@/common/formatters'
-import { Post, PostSchema } from '@/features/posts/data/types.ts'
+import { apiRoutes } from '@/common/constants.ts'
+import { groupBy } from '@/common/helpers.ts'
+import { logEffectError, logZodError } from '@/common/loggers.ts'
+import {
+  CommentType,
+  CommentSchema,
+  Post,
+  PostSchema,
+} from '@/features/user-details/data/types.ts'
 import { type User, UserSchema } from '@/features/users/data/types.ts'
 
 export const $user = createStore<{
   user: User
   posts: Post[]
 } | null>(null)
+export const $comments = createStore<Record<string, CommentType[]> | null>(null)
+
+export const getCommentsFx = createEffect<
+  unknown,
+  Record<string, CommentType[]>
+>(async () => {
+  const res = await axiosInstance.get<CommentType[]>(apiRoutes['/comments'])
+
+  try {
+    z.array(CommentSchema).parse(res.data)
+  } catch (e) {
+    logZodError(e, apiRoutes['/comments'])
+  }
+
+  return groupBy(res.data, (comment) => comment.postId)
+})
+
+logEffectError(apiRoutes['/comments'], getCommentsFx)
 
 export const getUserFx = createEffect<
   {
@@ -50,3 +74,4 @@ export const getUserFx = createEffect<
 logEffectError(apiRoutes['/users'], getUserFx)
 
 $user.on(getUserFx.doneData, (_, payload) => payload)
+$comments.on(getCommentsFx.doneData, (_, payload) => payload)

@@ -1,8 +1,12 @@
 import { useMemo } from 'react'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
 import {
   Box,
   BoxProps,
+  IconButton,
+  Link,
   Paper,
+  Stack,
   Typography,
   TypographyProps,
   useMediaQuery,
@@ -19,8 +23,8 @@ import {
 
 export default function DetailsCard() {
   const [user] = useUnit([$user])
-  const { t } = useTranslation()
 
+  const { t } = useTranslation()
   const theme = useTheme()
   const isDownMd = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -38,9 +42,25 @@ export default function DetailsCard() {
 
   return (
     <>
-      <TypographySkeleton {...typographyProps.title} fontWeight={'bold'} mb={2}>
-        {user?.user.name}
-      </TypographySkeleton>
+      <Stack
+        direction="row"
+        spacing={2}
+        mb={2}
+        alignItems={'center'}
+        justifyContent="space-between"
+      >
+        <TypographySkeleton {...typographyProps.title} fontWeight={'bold'}>
+          {user?.user.name}
+        </TypographySkeleton>
+        <IconButton
+          component={Link}
+          href={'/'}
+          color={'primary'}
+          size={'small'}
+        >
+          <HomeOutlinedIcon fontSize={'large'} />
+        </IconButton>
+      </Stack>
       <Paper
         elevation={3}
         sx={{

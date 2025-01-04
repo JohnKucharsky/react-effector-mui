@@ -34,7 +34,9 @@ interface Resources {
     "pickedColor": "Picked Color",
     "Light": "Light",
     "Dark": "Dark",
-    "Settings": "Settings"
+    "Settings": "Settings",
+    "Posts": "Posts",
+    "Comments": "Comments"
   }
 }
 

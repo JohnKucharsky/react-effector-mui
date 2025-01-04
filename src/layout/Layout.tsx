@@ -1,7 +1,7 @@
 import { ReactElement, useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
 import SettingsIcon from '@mui/icons-material/Settings'
-import { Slide, useScrollTrigger } from '@mui/material'
+import { Link, Slide, useScrollTrigger } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -20,7 +20,14 @@ import ColorPicker from '@/components/ColorPicker.tsx'
 import DarkModePicker from '@/components/DarkModePicker.tsx'
 
 const drawerWidth = 240
-const navItems = ['Home', 'About', 'Contact']
+const navItems = [
+  {
+    title: 'GITHUB',
+    href: 'https://github.com/JohnKucharsky/react-effector-mui',
+  },
+  { title: 'TELEGRAM', href: 'https://t.me/johnkucharsky' },
+  { title: 'HH.RU', href: 'https://hh.ru' },
+]
 
 export default function Layout() {
   return (
@@ -48,8 +55,13 @@ export default function Layout() {
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             >
               {navItems.map((item) => (
-                <Button key={item} color={'inherit'}>
-                  {item}
+                <Button
+                  component={Link}
+                  key={item.title}
+                  href={item.href}
+                  color={'inherit'}
+                >
+                  {item.title}
                 </Button>
               ))}
             </Box>
@@ -117,9 +129,12 @@ const LeftDrawer = () => {
           <Divider />
           <List>
             {navItems.map((item) => (
-              <ListItem key={item} disablePadding>
+              <ListItem key={item.title} disablePadding>
                 <ListItemButton sx={{ textAlign: 'center' }}>
-                  <ListItemText primary={item} sx={{ cursor: 'pointer' }} />
+                  <ListItemText
+                    primary={<Link href={item.href}>{item.title}</Link>}
+                    sx={{ cursor: 'pointer' }}
+                  />
                 </ListItemButton>
               </ListItem>
             ))}

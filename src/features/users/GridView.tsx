@@ -47,7 +47,7 @@ export default function GridView() {
 
           <Stack direction={'row'} alignItems={'center'} gap={1}>
             <RemoveEl
-              $selectedBulkActions={usersStore.$selectedBulkActions}
+              $hasSelectedItems={usersStore.$hasSelectedItems}
               handleOpenConfirmDeleteEv={usersStore.handleOpenConfirmDelete}
             />
             <Create />

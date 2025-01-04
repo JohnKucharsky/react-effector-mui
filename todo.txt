@@ -1,15 +1,11 @@
 + icon button icon and button size to look at
 + check icon to color picker
 + on click detailed info
-- pages to add
-- name query to rename
-- factories, name to think about, do I need them
 + Key extends keyof any to fix
-- client search to do
-- accordion for posts and table inside for comments
-- pages for comments and posts with links
++ accordion for posts and table inside for comments
 - remove duplications and unnecessary elements
-- use table with virtualization and pagination
+- remove factories
+- remove lodash with custom functions
 
 + max width table, and max width header top
 + dark mode
@@ -22,5 +18,3 @@
 + fields spacing
 + header
 
-pending
-- remove lodash with custom functions

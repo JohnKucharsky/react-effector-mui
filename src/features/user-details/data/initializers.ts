@@ -1,10 +1,12 @@
 import { createEvent, sample } from 'effector'
-import { getUserFx } from '@/features/user-details/data/api.ts'
+import { getCommentsFx, getUserFx } from '@/features/user-details/data/api.ts'
 
 export const userDetailedStarted = createEvent<string | undefined>()
 
 sample({
-  clock: [userDetailedStarted],
+  clock: userDetailedStarted,
   fn: (id) => ({ id }),
   target: getUserFx,
 })
+
+sample({ clock: userDetailedStarted, target: getCommentsFx })
