@@ -1,20 +1,15 @@
-+ icon button icon and button size to look at
-+ check icon to color picker
-+ on click detailed info
-+ Key extends keyof any to fix
-+ accordion for posts and table inside for comments
-- remove duplications and unnecessary elements
-- remove factories
-- remove lodash with custom functions
+- cypress
+- test table interactions
+- detailed page name to check
+- open post spoiler and check first comment
+- test refresh button, if reset changes
 
-+ max width table, and max width header top
-+ dark mode
-+ handleClose on create
-+ phone field to do
-+ divide create and delete
-+ yup schema
-+ add refresh button everywhere, refresh, tooltip it will reset all changes
-+ pick app color
-+ fields spacing
-+ header
-
+- redux plan
+    - look at template
+    - copy basic structure from here
+    - linter and packages
+    - don't need axios
+    - remove everything, copy after. step by step
+    - start from getting users, make checkboxes and other stuff empty
+    - setup rtk
+    - setup store, add ts hooks

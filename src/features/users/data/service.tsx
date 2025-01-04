@@ -28,6 +28,15 @@ export const formatAddress = (address: Address): string => {
 }
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
+  if (typeof b[orderBy] === 'string' && typeof a[orderBy] === 'string') {
+    if (b[orderBy].toLowerCase() < a[orderBy].toLowerCase()) {
+      return -1
+    }
+    if (b[orderBy].toLowerCase() > a[orderBy].toLowerCase()) {
+      return 1
+    }
+  }
+
   if (b[orderBy] < a[orderBy]) {
     return -1
   }
