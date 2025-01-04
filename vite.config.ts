@@ -41,6 +41,7 @@ export default defineConfig(({ mode }) => {
           source: '/comments/:path*',
           destination: `${env.VITE_API_URL}/comments/:path*`,
         },
+        { source: '/(.*)', destination: '/' },
       ],
     },
   }

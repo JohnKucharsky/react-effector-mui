@@ -14,14 +14,12 @@ export const $users = createStore<User[] | null>(null)
 
 export const getUsersFx = createEffect<
   {
-    name?: string
     id?: string
   },
   User[]
->(async ({ name, id }) => {
+>(async ({ id }) => {
   const res = await axiosInstance.get<User[]>(apiRoutes['/users'], {
     params: {
-      username: name || undefined,
       id: id || undefined,
     },
   })

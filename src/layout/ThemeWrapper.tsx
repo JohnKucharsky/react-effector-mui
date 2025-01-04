@@ -6,7 +6,7 @@ import { $primaryColor, $themeName } from '@/layout/store.ts'
 export default function ThemeWrapper({ children }: { children: ReactElement }) {
   const [mode, primaryColor] = useUnit([$themeName, $primaryColor])
 
-  const darkTheme = createTheme({
+  const theme = createTheme({
     palette: {
       mode,
       primary: {
@@ -16,7 +16,7 @@ export default function ThemeWrapper({ children }: { children: ReactElement }) {
   })
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       {children}
     </ThemeProvider>
