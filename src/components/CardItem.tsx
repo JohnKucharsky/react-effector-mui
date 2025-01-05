@@ -8,11 +8,15 @@ export default function CardItem({
   text?: string
 }) {
   return (
-    <Box>
+    <Box mb={1}>
       <Typography variant={'caption'} lineHeight={'normal'}>
         {title}
       </Typography>
-      <Typography sx={{ whiteSpace: 'pre-line' }} variant={'h6'}>
+      <Typography
+        sx={{ whiteSpace: 'pre-line' }}
+        lineHeight={'normal'}
+        variant={'h6'}
+      >
         {text}
       </Typography>
     </Box>

@@ -3,6 +3,7 @@ import {
   Box,
   Card,
   Dialog,
+  Link,
   Stack,
   Typography,
   useMediaQuery,
@@ -49,9 +50,12 @@ export default function CardEl({ user }: { user: User }) {
             justifyContent={'space-between'}
             alignItems={'flex-start'}
           >
-            <Typography variant="h5" fontWeight={'bold'}>
-              {user.name}
-            </Typography>
+            <Box>
+              <Typography variant="h5" fontWeight={'bold'}>
+                {user.name}
+              </Typography>
+              <Link href={`/user/${user.id}`}>details</Link>
+            </Box>
 
             <CardControls
               handleEditOpen={() => setOpen(true)}
