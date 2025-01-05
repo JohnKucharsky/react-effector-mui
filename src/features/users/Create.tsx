@@ -14,6 +14,7 @@ import { useUnit } from 'effector-react'
 import { Formik } from 'formik'
 import { useTranslation } from 'react-i18next'
 import { object } from 'yup'
+import { addTestKey } from '@/common/test-keys.ts'
 import DialogActionsEl from '@/components/DialogActionsEl'
 import CloseButton from '@/components/StyledComponents/CloseButton.tsx'
 import { addUserFx } from '@/features/users/data/api'
@@ -41,6 +42,7 @@ export default function Create() {
       </Dialog>
 
       <Button
+        {...addTestKey('add-button')}
         variant={'contained'}
         startIcon={<AddTwoToneIcon />}
         onClick={() => setOpened(true)}
@@ -120,6 +122,7 @@ function CreateContent({ handleClose }: { handleClose: () => void }) {
                 submit={errors.submit}
                 isSubmitting={loading}
                 buttonTitle={t('Create')}
+                testKey={'create-button'}
               />
             </form>
           )

@@ -94,6 +94,7 @@ export default function Edit({
               submit={errors.submit}
               isSubmitting={loading}
               buttonTitle={t('Edit')}
+              testKey={'edit-button'}
             />
           </form>
         )}

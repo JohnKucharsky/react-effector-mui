@@ -6,6 +6,53 @@ import {
 } from 'react'
 import { TextField } from '@mui/material'
 import { NumericFormatProps, PatternFormat } from 'react-number-format'
+import { addTestKey, TestKeysType } from '@/common/test-keys.ts'
+
+export default function PhoneNumberInputEl({
+  touched,
+  error,
+  label,
+  name,
+  handleChange,
+  handleBlur,
+  value,
+  testKey,
+}: {
+  touched: boolean | undefined
+  error: string | undefined
+  label: string
+  name: string
+  handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+  handleBlur: (
+    e: FocusEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLDivElement,
+      Element
+    >,
+  ) => void
+  value: string
+  testKey?: TestKeysType
+}) {
+  return (
+    <TextField
+      {...addTestKey(testKey)}
+      size={'small'}
+      error={Boolean(touched && error)}
+      fullWidth
+      helperText={touched && error}
+      label={label}
+      name={name}
+      onBlur={handleBlur}
+      onChange={handleChange}
+      type="text"
+      value={value}
+      variant="outlined"
+      slotProps={{
+        inputLabel: { shrink: true },
+        input: { inputComponent: NumericFormatCustom as never },
+      }}
+    />
+  )
+}
 
 const NumericFormatCustom = forwardRef<
   NumericFormatProps,
@@ -39,50 +86,3 @@ const NumericFormatCustom = forwardRef<
     />
   )
 })
-
-export default function PhoneNumberInputEl({
-  touched,
-  error,
-  label,
-  name,
-  handleChange,
-  handleBlur,
-  value,
-}: {
-  touched: boolean | undefined
-  error: string | undefined
-  label: string
-  name: string
-  handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
-  handleBlur: (
-    e: FocusEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLDivElement,
-      Element
-    >,
-  ) => void
-  value: string
-}) {
-  return (
-    <TextField
-      sx={{
-        backgroundColor: (theme) => theme.palette.background.default,
-        borderRadius: '10px',
-      }}
-      size={'small'}
-      error={Boolean(touched && error)}
-      fullWidth
-      helperText={touched && error}
-      label={label}
-      name={name}
-      onBlur={handleBlur}
-      onChange={handleChange}
-      type="text"
-      value={value}
-      variant="outlined"
-      slotProps={{
-        inputLabel: { shrink: true },
-        input: { inputComponent: NumericFormatCustom as never },
-      }}
-    />
-  )
-}

@@ -5,6 +5,7 @@ import { Avatar, ListItemAvatar } from '@mui/material'
 import Divider from '@mui/material/Divider'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
+import { addTestKey } from '@/common/test-keys.ts'
 import { generateRandomString } from '@/features/user-details/data/service.tsx'
 import { CommentType } from '@/features/user-details/data/types.ts'
 
@@ -24,13 +25,17 @@ export default function Comment({
 
   return (
     <>
-      <ListItem disablePadding alignItems="flex-start">
+      <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt={comment.email} src={avatar} />
         </ListItemAvatar>
-        <ListItemText primary={comment.name} secondary={comment.body} />
+        <ListItemText
+          {...addTestKey('comments')}
+          primary={comment.name}
+          secondary={comment.body}
+        />
       </ListItem>
-      {!last && <Divider variant="inset" component="li" />}
+      {!last && <Divider variant={'inset'} component="li" />}
     </>
   )
 }

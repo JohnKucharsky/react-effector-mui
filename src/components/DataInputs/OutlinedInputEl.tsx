@@ -6,6 +6,7 @@ import {
   OutlinedInputProps,
   Tooltip,
 } from '@mui/material'
+import { addTestKey, TestKeysType } from '@/common/test-keys.ts'
 
 const OutlinedInputEl = memo(function OutlinedInputEl({
   touched,
@@ -20,6 +21,7 @@ const OutlinedInputEl = memo(function OutlinedInputEl({
   size = 'medium',
   focus,
   inputProps,
+  testKey,
 }: {
   touched: boolean | undefined
   error: string | undefined
@@ -38,6 +40,7 @@ const OutlinedInputEl = memo(function OutlinedInputEl({
   size?: 'small' | 'medium'
   focus?: boolean
   inputProps?: OutlinedInputProps
+  testKey?: TestKeysType
 }) {
   return (
     <Tooltip title={touched && error}>
@@ -55,6 +58,7 @@ const OutlinedInputEl = memo(function OutlinedInputEl({
           {label}
         </InputLabel>
         <OutlinedInput
+          {...addTestKey(testKey)}
           autoFocus={focus}
           type={'text'}
           onChange={handleChange}

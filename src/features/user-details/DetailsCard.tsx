@@ -14,6 +14,7 @@ import {
 } from '@mui/material'
 import { useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
+import { addTestKey } from '@/common/test-keys.ts'
 import TypographySkeleton from '@/components/TypographySkeleton.tsx'
 import { $user } from '@/features/user-details/data/api.ts'
 import {
@@ -49,7 +50,11 @@ export default function DetailsCard() {
         alignItems={'center'}
         justifyContent="space-between"
       >
-        <TypographySkeleton {...typographyProps.title} fontWeight={'bold'}>
+        <TypographySkeleton
+          {...addTestKey('name-title')}
+          {...typographyProps.title}
+          fontWeight={'bold'}
+        >
           {user?.user.name}
         </TypographySkeleton>
         <IconButton

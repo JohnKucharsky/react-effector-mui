@@ -15,6 +15,7 @@ import List from '@mui/material/List'
 import Typography from '@mui/material/Typography'
 import { useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
+import { addTestKey } from '@/common/test-keys.ts'
 import TypographySkeleton from '@/components/TypographySkeleton.tsx'
 import Comment from '@/features/user-details/Comment.tsx'
 import {
@@ -55,7 +56,11 @@ export default function Posts({ ...props }: BoxProps) {
       {user?.posts.map((post) => (
         <Accordion elevation={3} key={post.id}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography {...typographyProps.paragraphTitle} fontWeight={'bold'}>
+            <Typography
+              {...addTestKey('posts')}
+              {...typographyProps.paragraphTitle}
+              fontWeight={'bold'}
+            >
               {post.title}
             </Typography>
           </AccordionSummary>
@@ -65,6 +70,7 @@ export default function Posts({ ...props }: BoxProps) {
               {...typographyProps.paragraphTitle}
               fontWeight={'bold'}
               mt={3}
+              ml={2}
             >
               {t('Comments')}:
             </TypographySkeleton>

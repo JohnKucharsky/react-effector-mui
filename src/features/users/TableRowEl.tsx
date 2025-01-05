@@ -14,6 +14,7 @@ import {
 } from '@mui/material'
 import { useStoreMap, useUnit } from 'effector-react'
 import { useNavigate } from 'react-router'
+import { addTestKey } from '@/common/test-keys.ts'
 import { formatAddress } from '@/features/users/data/service.tsx'
 import { usersStore } from '@/features/users/data/store'
 import { type User } from '@/features/users/data/types'
@@ -52,6 +53,7 @@ export default function TableRowEl({ user }: { user: User }) {
       <TableRow hover selected={isSelected}>
         <TableCell padding="checkbox">
           <Checkbox
+            {...addTestKey('row-checkbox')}
             sx={{
               height: '1rem',
             }}
@@ -65,7 +67,9 @@ export default function TableRowEl({ user }: { user: User }) {
         </TableCell>
 
         <TableCell>
-          <Typography variant="h6">{user.name}</Typography>
+          <Typography {...addTestKey('name-cell')} variant="h6">
+            {user.name}
+          </Typography>
         </TableCell>
         <TableCell>
           <Typography variant="h6">{user.username}</Typography>
@@ -78,6 +82,7 @@ export default function TableRowEl({ user }: { user: User }) {
         <TableCell>
           <Stack direction={'row'} alignItems={'center'}>
             <IconButton
+              {...addTestKey('link-button')}
               color={'primary'}
               onClick={() => {
                 navigate(`/user/${user.id}`)?.catch(console.error)
@@ -85,7 +90,11 @@ export default function TableRowEl({ user }: { user: User }) {
             >
               <OpenInNewIcon />
             </IconButton>
-            <IconButton color={'primary'} onClick={handleEditOpen}>
+            <IconButton
+              {...addTestKey('edit-pencil')}
+              color={'primary'}
+              onClick={handleEditOpen}
+            >
               <EditOutlinedIcon />
             </IconButton>
           </Stack>

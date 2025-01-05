@@ -37,6 +37,7 @@ export default function SameFields({
         value={values.name}
         required
         size={'small'}
+        testKey={'name-field'}
       />
 
       <OutlinedInputEl
@@ -49,6 +50,7 @@ export default function SameFields({
         value={values.userName}
         required
         size={'small'}
+        testKey={'username-field'}
       />
 
       <OutlinedInputEl
@@ -60,6 +62,7 @@ export default function SameFields({
         handleBlur={handleBlur}
         value={values.email}
         size={'small'}
+        testKey={'email-field'}
       />
 
       <PhoneNumberInputEl
@@ -70,6 +73,7 @@ export default function SameFields({
         handleChange={handleChange}
         handleBlur={handleBlur}
         value={values.phone}
+        testKey={'phone-field'}
       />
 
       <OutlinedInputEl
@@ -81,6 +85,7 @@ export default function SameFields({
         handleBlur={handleBlur}
         value={values.website}
         size={'small'}
+        testKey={'website-field'}
       />
 
       <OutlinedInputEl
@@ -92,6 +97,7 @@ export default function SameFields({
         handleBlur={handleBlur}
         value={values.street}
         size={'small'}
+        testKey={'street-field'}
       />
 
       <OutlinedInputEl
@@ -103,6 +109,7 @@ export default function SameFields({
         handleBlur={handleBlur}
         value={values.suite}
         size={'small'}
+        testKey={'suite-field'}
       />
 
       <OutlinedInputEl
@@ -114,6 +121,7 @@ export default function SameFields({
         handleBlur={handleBlur}
         value={values.city}
         size={'small'}
+        testKey={'city-field'}
       />
 
       <OutlinedInputEl
@@ -125,6 +133,7 @@ export default function SameFields({
         handleBlur={handleBlur}
         value={values.zipcode}
         size={'small'}
+        testKey={'zipcode-field'}
       />
 
       <OutlinedInputEl
@@ -136,6 +145,7 @@ export default function SameFields({
         handleBlur={handleBlur}
         value={values.companyName}
         size={'small'}
+        testKey={'company-name-field'}
       />
     </>
   )

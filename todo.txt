@@ -1,9 +1,3 @@
-- cypress
-- test table interactions
-- detailed page name to check
-- open post spoiler and check first comment
-- test refresh button, if reset changes
-
 - redux plan
     - look at template
     - copy basic structure from here

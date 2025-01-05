@@ -1,14 +1,17 @@
 import { LoadingButton } from '@mui/lab'
 import { DialogActions, FormHelperText } from '@mui/material'
+import { addTestKey, TestKeysType } from '@/common/test-keys.ts'
 
 export default function DialogActionsEl({
   submit,
   isSubmitting,
   buttonTitle,
+  testKey,
 }: {
   submit: string | null | undefined
   isSubmitting: boolean
   buttonTitle: string
+  testKey?: TestKeysType
 }) {
   return (
     <DialogActions
@@ -22,6 +25,7 @@ export default function DialogActionsEl({
         <FormHelperText error>{JSON.stringify(submit)}</FormHelperText>
       ) : null}
       <LoadingButton
+        {...addTestKey(testKey)}
         type="submit"
         loading={isSubmitting}
         disabled={Boolean(submit) || isSubmitting}
