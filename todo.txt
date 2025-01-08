@@ -1,9 +1,7 @@
 - redux plan
-    - look at template
-    - copy basic structure from here
-    - linter and packages
+    + look at template
+    - copy basic structure from redux
+    - add linter and packages
     - don't need axios
     - remove everything, copy after. step by step
     - start from getting users, make checkboxes and other stuff empty
-    - setup rtk
-    - setup store, add ts hooks

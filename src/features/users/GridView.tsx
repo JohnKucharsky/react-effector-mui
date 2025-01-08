@@ -5,13 +5,11 @@ import { useTranslation } from 'react-i18next'
 import { GridSkeletons } from '@/components/GridSkeletons.tsx'
 import NoItems from '@/components/NoItems.tsx'
 import RefreshButton from '@/components/RefreshButton.tsx'
-import RemoveEl from '@/components/RemoveEl.tsx'
 import FlexWrap from '@/components/StyledComponents/FlexWrap.tsx'
 import CardEl from '@/features/users/CardEl.tsx'
 import Create from '@/features/users/Create.tsx'
 import { $users, getUsersFx } from '@/features/users/data/api.ts'
 import { usersStarted } from '@/features/users/data/initializers.ts'
-import { usersStore } from '@/features/users/data/store.ts'
 
 export default function GridView() {
   const [users, loading, pageStarted] = useUnit([
@@ -45,13 +43,7 @@ export default function GridView() {
             <RefreshButton onRefresh={pageStarted} loading={loading} />
           </FlexWrap>
 
-          <Stack direction={'row'} alignItems={'center'} gap={1}>
-            <RemoveEl
-              $hasSelectedItems={usersStore.$hasSelectedItems}
-              handleOpenConfirmDeleteEv={usersStore.handleOpenConfirmDelete}
-            />
-            <Create />
-          </Stack>
+          <Create />
         </Stack>
       </Card>
 

@@ -12,6 +12,7 @@ import {
 } from '@mui/material'
 import { useStoreMap, useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
+import { orderByFunc } from '@/common/helpers.ts'
 import RefreshButton from '@/components/RefreshButton.tsx'
 import RemoveEl from '@/components/RemoveEl.tsx'
 import FlexWrap from '@/components/StyledComponents/FlexWrap.tsx'
@@ -21,7 +22,6 @@ import TableSkeletons from '@/components/TableSkeletons.tsx'
 import Create from '@/features/users/Create.tsx'
 import { $users, getUsersFx } from '@/features/users/data/api.ts'
 import { usersStarted } from '@/features/users/data/initializers.ts'
-import { getComparator } from '@/features/users/data/service.tsx'
 import { usersStore } from '@/features/users/data/store.ts'
 import SortCell from '@/features/users/SortCell.tsx'
 import TableRowEl from '@/features/users/TableRowEl.tsx'
@@ -34,10 +34,8 @@ export default function TableView() {
     store: $users,
     keys: [order, orderBy],
     fn: (users, [order, orderBy]) => {
-      const copyUsers = structuredClone(users)
-      if (!copyUsers) return copyUsers
-      copyUsers.sort(getComparator(order, orderBy))
-      return copyUsers
+      if (!users) return users
+      return orderByFunc(orderBy, order, users)
     },
   })
 
@@ -47,10 +45,11 @@ export default function TableView() {
     <Card elevation={3}>
       <Stack
         direction={'row'}
-        alignItems={'flex-start'}
+        alignItems={'center'}
         justifyContent={'space-between'}
         p={2}
         spacing={1}
+        minHeight={'72px'}
       >
         <FlexWrap gap={1} width={'100%'}>
           <Typography variant={'h5'} fontWeight={'bold'}>

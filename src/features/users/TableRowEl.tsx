@@ -54,9 +54,6 @@ export default function TableRowEl({ user }: { user: User }) {
         <TableCell padding="checkbox">
           <Checkbox
             {...addTestKey('row-checkbox')}
-            sx={{
-              height: '1rem',
-            }}
             size={'small'}
             checked={isSelected}
             onChange={() => {

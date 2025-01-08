@@ -23,9 +23,6 @@ export default function TableCheckboxEl({
   return (
     <Tooltip arrow placement="top" title={t('selectAll')}>
       <Checkbox
-        sx={{
-          height: '1rem',
-        }}
         size={'small'}
         checked={selectedAll}
         indeterminate={selectedSome}

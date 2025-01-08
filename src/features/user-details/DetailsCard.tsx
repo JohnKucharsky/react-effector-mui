@@ -4,7 +4,6 @@ import {
   Box,
   BoxProps,
   IconButton,
-  Link,
   Paper,
   Stack,
   Typography,
@@ -14,6 +13,7 @@ import {
 } from '@mui/material'
 import { useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router'
 import { addTestKey } from '@/common/test-keys.ts'
 import TypographySkeleton from '@/components/TypographySkeleton.tsx'
 import { $user } from '@/features/user-details/data/api.ts'
@@ -28,6 +28,8 @@ export default function DetailsCard() {
   const { t } = useTranslation()
   const theme = useTheme()
   const isDownMd = useMediaQuery(theme.breakpoints.down('md'))
+
+  const navigate = useNavigate()
 
   const typographyProps = useMemo(
     (): Record<'title' | 'paragraph' | 'paragraphTitle', TypographyProps> =>
@@ -58,8 +60,9 @@ export default function DetailsCard() {
           {user?.user.name}
         </TypographySkeleton>
         <IconButton
-          component={Link}
-          href={'/'}
+          onClick={() => {
+            navigate('/')
+          }}
           color={'primary'}
           size={'small'}
         >
