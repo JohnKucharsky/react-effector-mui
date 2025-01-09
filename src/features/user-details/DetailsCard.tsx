@@ -14,13 +14,13 @@ import {
 import { useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { addTestKey } from '@/common/test-keys.ts'
 import TypographySkeleton from '@/components/TypographySkeleton.tsx'
 import { $user } from '@/features/user-details/data/api.ts'
 import {
   boxPropsObj,
   typographyPropsObj,
 } from '@/features/user-details/data/service.tsx'
+import { addTestKey } from '@/utils/test-keys.ts'
 
 export default function DetailsCard() {
   const [user] = useUnit([$user])

@@ -15,7 +15,6 @@ import List from '@mui/material/List'
 import Typography from '@mui/material/Typography'
 import { useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
-import { addTestKey } from '@/common/test-keys.ts'
 import TypographySkeleton from '@/components/TypographySkeleton.tsx'
 import Comment from '@/features/user-details/Comment.tsx'
 import {
@@ -24,6 +23,7 @@ import {
   getUserFx,
 } from '@/features/user-details/data/api.ts'
 import { typographyPropsObj } from '@/features/user-details/data/service.tsx'
+import { addTestKey } from '@/utils/test-keys.ts'
 
 export default function Posts({ ...props }: BoxProps) {
   const [user, comments, pending] = useUnit([

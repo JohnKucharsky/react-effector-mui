@@ -1,14 +1,14 @@
 import { type AxiosResponse } from 'axios'
 import { createEffect, createStore } from 'effector'
 import { z } from 'zod'
-import { axiosInstance } from '@/common/axios'
-import { apiRoutes } from '@/common/constants.ts'
-import { logEffectError, logZodError } from '@/common/loggers.ts'
 import {
   PartialUser,
   type User,
   UserSchema,
 } from '@/features/users/data/types.ts'
+import { axiosInstance } from '@/utils/axios'
+import { apiRoutes } from '@/utils/constants.ts'
+import { logEffectError, logZodError } from '@/utils/loggers.ts'
 
 export const $users = createStore<User[] | null>(null)
 

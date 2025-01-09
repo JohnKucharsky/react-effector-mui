@@ -12,7 +12,6 @@ import {
 } from '@mui/material'
 import { useStoreMap, useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
-import { orderByFunc } from '@/common/helpers.ts'
 import RefreshButton from '@/components/RefreshButton.tsx'
 import RemoveEl from '@/components/RemoveEl.tsx'
 import FlexWrap from '@/components/StyledComponents/FlexWrap.tsx'
@@ -25,6 +24,7 @@ import { usersStarted } from '@/features/users/data/initializers.ts'
 import { usersStore } from '@/features/users/data/store.ts'
 import SortCell from '@/features/users/SortCell.tsx'
 import TableRowEl from '@/features/users/TableRowEl.tsx'
+import { orderByFunc } from '@/utils/helpers.ts'
 
 export default function TableView() {
   const [loading, pageStarted] = useUnit([getUsersFx.pending, usersStarted])

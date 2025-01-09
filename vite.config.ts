@@ -2,7 +2,7 @@ import * as path from 'node:path'
 import react from '@vitejs/plugin-react'
 import { defineConfig, loadEnv, ProxyOptions } from 'vite'
 import vercel from 'vite-plugin-vercel'
-import { apiRoutes } from './src/common/constants.ts'
+import { apiRoutes } from '@/utils/constants.ts'
 
 // https://vite.dev/config/
 

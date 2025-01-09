@@ -3,8 +3,8 @@ import { LoadingButton } from '@mui/lab'
 import { Box, Button, Dialog, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { Transition } from './StyledComponents/ConfirmDeleteStyles'
-import { addTestKey } from '@/common/test-keys.ts'
 import CloseButton from '@/components/StyledComponents/CloseButton.tsx'
+import { addTestKey } from '@/utils/test-keys.ts'
 
 export default function ConfirmDeleteUI({
   openConfirmDelete,

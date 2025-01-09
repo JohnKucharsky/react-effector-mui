@@ -1,9 +1,5 @@
 import { createEffect, createStore } from 'effector'
 import { z } from 'zod'
-import { axiosInstance } from '@/common/axios'
-import { apiRoutes } from '@/common/constants.ts'
-import { groupBy } from '@/common/helpers.ts'
-import { logEffectError, logZodError } from '@/common/loggers.ts'
 import {
   CommentType,
   CommentSchema,
@@ -11,6 +7,10 @@ import {
   PostSchema,
 } from '@/features/user-details/data/types.ts'
 import { type User, UserSchema } from '@/features/users/data/types.ts'
+import { axiosInstance } from '@/utils/axios'
+import { apiRoutes } from '@/utils/constants.ts'
+import { groupBy } from '@/utils/helpers.ts'
+import { logEffectError, logZodError } from '@/utils/loggers.ts'
 
 export const $user = createStore<{
   user: User

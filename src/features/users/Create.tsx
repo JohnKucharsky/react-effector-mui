@@ -14,13 +14,13 @@ import { useUnit } from 'effector-react'
 import { Formik } from 'formik'
 import { useTranslation } from 'react-i18next'
 import { object } from 'yup'
-import { addTestKey } from '@/common/test-keys.ts'
 import DialogActionsEl from '@/components/DialogActionsEl'
 import CloseButton from '@/components/StyledComponents/CloseButton.tsx'
 import { addUserFx } from '@/features/users/data/api'
 import { userInputOutput } from '@/features/users/data/input-output'
 import { useYupSchemaUsers } from '@/features/users/data/service'
 import SameFields from '@/features/users/SameFields'
+import { addTestKey } from '@/utils/test-keys.ts'
 
 export default function Create() {
   const [opened, setOpened] = useState(false)

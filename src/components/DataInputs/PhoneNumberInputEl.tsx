@@ -6,7 +6,7 @@ import {
 } from 'react'
 import { TextField } from '@mui/material'
 import { NumericFormatProps, PatternFormat } from 'react-number-format'
-import { addTestKey, TestKeysType } from '@/common/test-keys.ts'
+import { addTestKey, TestKeysType } from '@/utils/test-keys.ts'
 
 export default function PhoneNumberInputEl({
   touched,

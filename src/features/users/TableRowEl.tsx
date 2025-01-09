@@ -14,11 +14,11 @@ import {
 } from '@mui/material'
 import { useStoreMap, useUnit } from 'effector-react'
 import { useNavigate } from 'react-router'
-import { addTestKey } from '@/common/test-keys.ts'
 import { formatAddress } from '@/features/users/data/service.tsx'
 import { usersStore } from '@/features/users/data/store'
 import { type User } from '@/features/users/data/types'
 import Edit from '@/features/users/Edit'
+import { addTestKey } from '@/utils/test-keys.ts'
 
 export default function TableRowEl({ user }: { user: User }) {
   const [open, setOpen] = useState(false)

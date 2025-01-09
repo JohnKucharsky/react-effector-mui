@@ -5,9 +5,9 @@ import { Avatar, ListItemAvatar } from '@mui/material'
 import Divider from '@mui/material/Divider'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
-import { addTestKey } from '@/common/test-keys.ts'
 import { generateRandomString } from '@/features/user-details/data/service.tsx'
 import { CommentType } from '@/features/user-details/data/types.ts'
+import { addTestKey } from '@/utils/test-keys.ts'
 
 export default function Comment({
   comment,

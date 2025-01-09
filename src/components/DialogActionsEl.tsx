@@ -1,6 +1,6 @@
 import { LoadingButton } from '@mui/lab'
 import { DialogActions, FormHelperText } from '@mui/material'
-import { addTestKey, TestKeysType } from '@/common/test-keys.ts'
+import { addTestKey, TestKeysType } from '@/utils/test-keys.ts'
 
 export default function DialogActionsEl({
   submit,

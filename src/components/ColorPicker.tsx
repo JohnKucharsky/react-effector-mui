@@ -3,8 +3,8 @@ import { Box, Stack, Typography } from '@mui/material'
 import * as muiColors from '@mui/material/colors'
 import { useUnit } from 'effector-react'
 import { useTranslation } from 'react-i18next'
-import { omit } from '@/common/helpers.ts'
 import { $primaryColor, handleChangePrimaryColorEv } from '@/layout/store.ts'
+import { omit } from '@/utils/helpers.ts'
 
 const colors = Object.entries(
   omit(muiColors, ['common', 'yellow', 'lime', 'red']),

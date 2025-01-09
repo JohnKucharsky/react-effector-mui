@@ -6,7 +6,7 @@ import {
   OutlinedInputProps,
   Tooltip,
 } from '@mui/material'
-import { addTestKey, TestKeysType } from '@/common/test-keys.ts'
+import { addTestKey, TestKeysType } from '@/utils/test-keys.ts'
 
 const OutlinedInputEl = memo(function OutlinedInputEl({
   touched,
