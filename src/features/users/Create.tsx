@@ -30,7 +30,7 @@ export default function Create() {
   const isDownSm = useMediaQuery(theme.breakpoints.down('sm'))
 
   return (
-    <>
+    <Box>
       <Dialog
         fullScreen={isDownSm}
         fullWidth
@@ -49,7 +49,7 @@ export default function Create() {
       >
         {t('Create')}
       </Button>
-    </>
+    </Box>
   )
 }
 
