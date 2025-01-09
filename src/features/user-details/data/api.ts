@@ -39,7 +39,7 @@ export const getUserFx = createEffect<
   {
     id?: string
   },
-  { user: User; posts: Post[] }
+  { user: User; posts: Post[] } | null
 >(async ({ id }) => {
   const resUser = await axiosInstance.get<User[]>(apiRoutes['/users'], {
     params: {
@@ -51,6 +51,9 @@ export const getUserFx = createEffect<
     z.array(UserSchema).parse(resUser.data)
   } catch (e) {
     logZodError(e, apiRoutes['/users'])
+  }
+  if (resUser.data?.length === 0) {
+    return null
   }
 
   const resPosts = await axiosInstance.get<Post[]>(apiRoutes['/posts'], {
