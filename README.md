@@ -1,52 +1,58 @@
-# React + TypeScript + Vite
+# React Effector MUI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This codebase is frontend for [JSON placeholder](https://jsonplaceholder.typicode.com/).
 
-Currently, two official plugins are available:
+Features:
+- type safe with zod
+- mui with dark mode and interface color picker
+- navigating with react router
+- form validation with formik
+- type safe internationalization
+- advanced eslint and prettier config
+- e2e testing with cypress
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Libraries and Frameworks
 
-## Expanding the ESLint configuration
+| Name                                          |                      |
+|-----------------------------------------------|----------------------|
+| [TypeScript](https://www.typescriptlang.org/) | 5.7.x                |
+| [React](https://react.dev/)                   | 19.x                 |
+| [Vite](https://vite.dev/)                     | 6.x                  |
+| [React Router](https://reactrouter.com/)      | 7.x                  |
+| [Effector](https://effector.dev/)             | state manager        |
+| [MUI](https://mui.com/)                       | ui components        |
+| [Zod](https://zod.dev/)                       | schema validation    |
+| [Formik](https://formik.org/)                 | managing form state  |
+| [Cypress](https://www.cypress.io/)            | e2e testing          |
+| [i18next](https://www.i18next.com/)           | internationalization |
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+Demo app is running on <https://react-redux-mui.vercel.app/> .
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Alternatively, you can try it locally.
+
+```bash
+# copy env
+cp .env.example .env.local
+
+# run app
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Directory structure
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```plaintext
+.
+├── api/                  # api schema
+├── public/               # static assets
+└── src/
+    ├── app/              # web routes
+    ├── config/           # global configuration and constants
+    ├── generated/        # automatically generated codes
+    ├── modules/
+    │   ├── common/       # common (feature-independent) components
+    │   └── features/     # feature-specific components
+    ├── styles/           # global style sheets
+    └── utils/            # utilities
 ```
-# react-effector-mui
-# react-effector-mui
