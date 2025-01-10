@@ -1,58 +1,74 @@
+
 # React Effector MUI
 
-This codebase is frontend for [JSON placeholder](https://jsonplaceholder.typicode.com/).
+This is a frontend project built for [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
 
-Features:
-- type safe with zod
-- mui with dark mode and interface color picker
-- navigating with react router
-- form validation with formik
-- type safe internationalization
-- advanced eslint and prettier config
-- e2e testing with cypress
+## Features
+- **Effector** for state management
+- **Type-safe** with Zod
+- **MUI** for UI components, including dark mode and a color picker
+- **React Router** for navigation
+- **Formik** for form validation
+- **Type-safe internationalization** with i18next
+- **Advanced linting and formatting** using ESLint and Prettier
+- **End-to-end testing** with Cypress
 
 ## Libraries and Frameworks
 
-| Name                                          |                      |
-|-----------------------------------------------|----------------------|
-| [TypeScript](https://www.typescriptlang.org/) | 5.7.x                |
-| [React](https://react.dev/)                   | 19.x                 |
-| [Vite](https://vite.dev/)                     | 6.x                  |
-| [React Router](https://reactrouter.com/)      | 7.x                  |
-| [Effector](https://effector.dev/)             | state manager        |
-| [MUI](https://mui.com/)                       | ui components        |
-| [Zod](https://zod.dev/)                       | schema validation    |
-| [Formik](https://formik.org/)                 | managing form state  |
-| [Cypress](https://www.cypress.io/)            | e2e testing          |
-| [i18next](https://www.i18next.com/)           | internationalization |
+| **Name**                                      | **Version** | **Description**       |  
+|-----------------------------------------------|-------------|-----------------------|  
+| [TypeScript](https://www.typescriptlang.org/) | 5.7.x       | Type-safe JavaScript  |  
+| [React](https://react.dev/)                   | 19.x        | UI framework          |  
+| [Vite](https://vite.dev/)                     | 6.x         | Build tool            |  
+| [React Router](https://reactrouter.com/)      | 7.x         | Navigation library    |  
+| [Effector](https://effector.dev/)             | 23.x        | State manager         |  
+| [MUI](https://mui.com/)                       | 6.x         | UI components         |  
+| [Zod](https://zod.dev/)                       | 3.x         | Schema validation     |  
+| [Formik](https://formik.org/)                 | 2.x         | Form state management |  
+| [Cypress](https://www.cypress.io/)            | 13.x        | End-to-end testing    |  
+| [i18next](https://www.i18next.com/)           | 24.x        | Internationalization  |  
 
 ## Getting Started
 
-Demo app is running on <https://react-redux-mui.vercel.app/> .
+A demo of the app is live at: [https://react-effector-mui.vercel.app/](https://react-effector-mui.vercel.app/).
 
-Alternatively, you can try it locally.
+### Development
 
-```bash
-# copy env
-cp .env.example .env.local
+1. Copy the environment file:
+   ```bash  
+   cp .env.example .env.local
+   ``` 
+   
+2. Install dependencies:
+    ```bash  
+   yarn
+   ``` 
+   
+3. Run dev:
+   ```bash  
+   yarn dev
+   ``` 
 
-# run app
-npm run dev
-```
+### Production
 
-## Directory structure
+1. Build the application:
+   ```bash  
+   yarn build
+   ``` 
 
-```plaintext
-.
-├── api/                  # api schema
-├── public/               # static assets
-└── src/
-    ├── app/              # web routes
-    ├── config/           # global configuration and constants
-    ├── generated/        # automatically generated codes
-    ├── modules/
-    │   ├── common/       # common (feature-independent) components
-    │   └── features/     # feature-specific components
-    ├── styles/           # global style sheets
-    └── utils/            # utilities
-```
+2. Preview the build:
+    ```bash  
+   yarn preview
+   ``` 
+
+### Testing
+
+1. Run tests in the browser:
+   ```bash  
+   yarn test:open
+   ``` 
+
+2. Run tests in the terminal:
+    ```bash  
+   yarn test:run
+   ``` 

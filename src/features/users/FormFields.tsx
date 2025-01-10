@@ -5,7 +5,7 @@ import OutlinedInputEl from '@/components/DataInputs/OutlinedInputEl'
 import PhoneNumberInputEl from '@/components/DataInputs/PhoneNumberInputEl.tsx'
 import { UserFields } from '@/features/users/data/input-output.ts'
 
-export default function SameFields({
+export default function FormFields({
   touched,
   errors,
   values,
