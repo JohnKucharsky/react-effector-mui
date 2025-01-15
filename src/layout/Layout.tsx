@@ -26,7 +26,10 @@ const navItems = [
     href: 'https://github.com/JohnKucharsky/react-effector-mui',
   },
   { title: 'TELEGRAM', href: 'https://t.me/johnkucharsky' },
-  { title: 'HH.RU', href: 'https://hh.ru' },
+  {
+    title: 'HH.RU',
+    href: 'https://hh.ru/resume/d9f27928ff0e3ac9b20039ed1f4648646e454a',
+  },
 ]
 
 export default function Layout() {

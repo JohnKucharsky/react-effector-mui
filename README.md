@@ -4,6 +4,7 @@
 This is a frontend project built for [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
 
 ## Features
+
 - **Effector** for state management
 - **Type-safe** with Zod
 - **MUI** for UI components, including dark mode and a color picker
@@ -18,7 +19,7 @@ This is a frontend project built for [JSONPlaceholder](https://jsonplaceholder.t
 | **Name**                                      | **Version** | **Description**       |  
 |-----------------------------------------------|-------------|-----------------------|  
 | [TypeScript](https://www.typescriptlang.org/) | 5.7.x       | Type-safe JavaScript  |  
-| [React](https://react.dev/)                   | 19.x        | UI framework          |  
+| [React](https://react.dev/)                   | 19.x        | UI library            |  
 | [Vite](https://vite.dev/)                     | 6.x         | Build tool            |  
 | [React Router](https://reactrouter.com/)      | 7.x         | Navigation library    |  
 | [Effector](https://effector.dev/)             | 23.x        | State manager         |  
