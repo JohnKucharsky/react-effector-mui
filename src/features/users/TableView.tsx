@@ -89,18 +89,20 @@ export default function TableView() {
               <TableCell></TableCell>
             </TableRow>
           </TableHead>
-          {users?.length === 0 && !loading ? (
+          {!loading && users?.length === 0 ? (
             <TableEmptyText
               colSpan={8}
               title={t('couldNotFindSearchedUsers')}
             />
           ) : null}
 
-          {loading ? (
+          {loading && (
             <TableBody>
               <TableSkeletons cellsCount={8} skeletonRowsCount={10} />
             </TableBody>
-          ) : (
+          )}
+
+          {!loading && users?.length !== 0 && (
             <TableBody>
               {users?.map((item) => <TableRowEl key={item.id} user={item} />)}
             </TableBody>
